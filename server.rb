@@ -10,7 +10,7 @@ end
 get '/:api_token/:project_id' do
   Iteration.headers['X-TrackerToken'] = params[:api_token]
   current_iteration = Iteration.find(:all, :params => {:project_id => params[:project_id], :group => "current"})
-  iterations_backlog = Iteration.find(:all, :params => {:project_id => params[:project_id], :group => "backlog"}) 
+  iterations_backlog = Iteration.find(:all, :params => {:project_id => params[:project_id], :group => "backlog"})
   @iterations = current_iteration + iterations_backlog
 
   erb :milestones
@@ -27,7 +27,7 @@ __END__
     <% iteration.stories.each do |story| %>
       <li class='story'><h3 style='displayay:inline'><i>Story <%= story.id %> (<%= story.current_state %>)</i></h3>
       <small class='taskCount'><i><%= " - #{story.tasks.size} tasks defined" if story.respond_to?(:tasks) %></i></small>
-        <p class='storyDescription'><Sprintan class="storyIngress"><%= story.name%></span><br><span class="storyRest" style="color:grey"></span></p>
+        <p class='storyDescription'><span class="storyIngress"><%= story.name%></span><br><span class="storyRest" style="color:grey"></span></p>
       <% end %>
     </ul>
   <% end %>
