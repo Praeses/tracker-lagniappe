@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'active_resource'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 class Iteration < ActiveResource::Base
   self.site = "http://www.pivotaltracker.com/services/v3/projects/:project_id"
 end

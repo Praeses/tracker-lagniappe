@@ -1,2 +1,3 @@
 sinatra
 activeresource
+newrelic_rpm
