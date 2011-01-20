@@ -1,3 +1,4 @@
 sinatra
 activeresource
 newrelic_rpm
+haml
