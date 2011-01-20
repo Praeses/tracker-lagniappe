@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'active_resource'
+require 'haml'
 
 configure :production do
   require 'newrelic_rpm'
@@ -28,25 +29,11 @@ __END__
 
 @@ milestones
 
+%h1  Release Plan
+
 - @iterations.each do |iteration|
-  %h2{ :id => "Sprint_#{ iteration.number }", :style => 'display:inline' }
-    == Sprint #{ iteration.number }
-  %i== - ends #{ iteration.finish.strftime("%Y-%m-%d") }
-  %a{ :href => "#Sprint_#{iteration.number}", :class => 'anchor'} &nbsp;&para;
+  %h2{ :class => 'sprint' } Start #{ iteration.start.strftime("%Y-%m-%d") } - End #{ iteration.finish.strftime("%Y-%m-%d") }
 
   %ul
     - iteration.stories.each do |story|
-      %li{ :class => 'story' }
-        %h3{ :style => 'display:inline' }
-          %i== Story #{story.id} (#{story.current_state})
-
-        %br
-        - if story.respond_to?( :tasks )
-          %small{ :class => 'taskCount'}
-          %i== - #{story.tasks.size} tasks defined
-
-        %p{ :class => 'storyDescription' }
-          %span{ :class => 'storyInprogress' }= story.name
-
-
-
+      %li{ :class => 'story' } #{story.name}
