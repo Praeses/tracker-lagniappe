@@ -1,0 +1,14 @@
+%h1 Welcome to Tracker Lagniappe
+
+%form{:name => "tracker_data", :id => "tracker_data", :action => "/releaseplan", :method => "get", :enctype => "text/plain"}
+	%fieldset
+		%p
+			%label{:for => "api_token"} API Token:
+			%input{:type => "text", :name => "api_token", :class => "text", :size => "50"}
+
+		%p
+			%label{:for => "project_id"} Project ID:
+			%input{:type => "text", :name => "project_id", :class => "text", :size => "50"}
+
+		%p
+			%input{:type => "submit", :value => "I would like to see my release plan", :class => "button"}

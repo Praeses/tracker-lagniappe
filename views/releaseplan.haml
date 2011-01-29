@@ -1,0 +1,8 @@
+%h1 Release Plan
+
+- @iterations.each do |iteration|
+  %h2{ :class => 'sprint' } Start #{ iteration.start.strftime("%Y-%m-%d") } - End #{ iteration.finish.strftime("%Y-%m-%d") }
+
+  %ul
+    - iteration.stories.each do |story|
+      %li{ :class => 'story' } #{story.name}
