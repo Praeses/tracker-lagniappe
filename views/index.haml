@@ -1,14 +1,1 @@
-%form{:action => "/release_plan", :method => "post", :onsubmit => "return validateform();" }
-  %fieldset
-    %p
-      %label{:for => "api_token"} API Token:
-      %input{:type => "text", :name => "api_token", :id => "api_token", :class => "text", :size => "50"}
-    %p
-      %label{:for => "project_id"} Project ID:
-      %input{:type => "text", :name => "project_id", :id => "project_id", :class => "text", :size => "50"}
-    %p
-      %label{:for => "cost"} Team Burn Rate:
-      %input{:type => "text", :name => "cost", :id=> "cost", :class => "text", :size => "50"}	  
-      %span{:name => "costerr",:id => "costerr", :class => "off"}  Must be numeric Ex. 3500.50
-    %p
-      %input{:type => "submit", :value => "I would like to see my release plan", :class => "button"}
+%h1 Please enter your API token and project id

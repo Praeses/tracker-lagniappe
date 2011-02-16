@@ -5,4 +5,21 @@
     %script{:src => "/javascripts/application.js", :type => "text/javascript"}	
   %body
     %h1 Welcome to Tracker Lagniappe
+    %form{:action => "/release_plan", :method => "post", :onsubmit => "return validateform();" }
+      %fieldset
+        %p
+          %label{:for => "api_token"} API Token:
+          %input{:type => "text", :name => "api_token", :id => "api_token", :class => "text", :value => "#{@api_token}", :size => "50"}
+
+          %label{:for => "project_id"} Project ID:
+          %input{:type => "text", :name => "project_id", :id => "project_id", :class => "text", :value => "#{@project_id}", :size => "15"}
+
+          %label{:for => "cost"} Team Burn Rate:
+          %input{:type => "text", :name => "cost", :id=> "cost", :class => "text", :value => "#{@cost}", :size => "15"}	  
+          %span{:name => "costerr",:id => "costerr", :class => "off"}  Must be numeric Ex. 3500.50
+
+          %input{:type => "checkbox", :name => "rememberme", :id=> "rememberme", :checked => @rememberme || nil}
+          %span Remember me
+
+          %input{:type => "submit", :value => "I would like to see my release plan", :class => "button"}
     = yield
