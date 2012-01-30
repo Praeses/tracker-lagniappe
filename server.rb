@@ -6,6 +6,8 @@ configure :production do
   require 'newrelic_rpm'
 end
 
+ActiveResource::Base.format = :xml
+
 class Iteration < ActiveResource::Base
   self.site = "https://www.pivotaltracker.com/services/v3/projects/:project_id"
 end
